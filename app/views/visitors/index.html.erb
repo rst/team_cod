@@ -1,14 +1,21 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h3>Welcome to YouthHub!</h3>
+  </div>
 
-<%= form_tag search_events_url, method: :post do %>
-  <ul id="topics_list">
-    <% Topic.order("created_at").each do |topic| %>
-      <li>
-         <%= check_box_tag "topic-#{topic.id.to_i}" %>
-         <%= topic.name %>
-      </li>
-    <% end %>
-  </ul>
-  <%= submit_tag "search" %>
-<% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><%= @title %></h1>
+    </div>
+  </div>
+
+  <% @elements.each do |e| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>
+        <a href="<%= e[:url] %>" class="btn btn-block btn-lg btn-primary"><%= e[:text] %></a>
+      </p>
+    </div>
+  </div>
+  <% end %>
+</div>
