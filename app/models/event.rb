@@ -14,4 +14,10 @@ class Event < ActiveRecord::Base
                                       topics.collect(&:id))
     end
   end
+
+  def self.requiring_topic(topic)
+    join_name = "topic_#{topic.id.to_i}"
+    self.joins("join event_topics as #{join_name} on #{join_name}.event_id = events.id")
+      .where("#{join_name}.topic_id = ?", topic.id)
+  end
 end

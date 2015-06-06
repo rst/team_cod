@@ -34,4 +34,23 @@ class EventTest < ActiveSupport::TestCase
 
   end
 
+  def test_event_requiring_topic
+
+    retail = topics(:retail)
+    prog = topics(:programming)
+    cy = events(:cyber_jamboree)
+
+    assert_equal [], Event.requiring_topic(retail).requiring_topic(prog).to_a
+
+    cy.topics << retail
+
+    assert_equal [cy], Event.requiring_topic(retail).to_a
+    assert_equal [], Event.requiring_topic(retail).requiring_topic(prog).to_a
+
+    cy.topics << prog
+
+    assert_equal [cy], Event.requiring_topic(retail).requiring_topic(prog).to_a
+
+  end
+
 end
