@@ -1,0 +1,13 @@
+<% if @events.empty? %>
+  <h2>No events found</h2>
+<% else %>
+  <ul class="events_list">
+    <% @events.each do |event| %>
+      <li>
+         <div class="event_name"><%= event.name %></div>
+         <div class="event_date"><%= event.starts_at %></div>
+         <div class="event_description"><%= event.description %></div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
