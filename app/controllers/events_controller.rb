@@ -6,6 +6,10 @@ class EventsController < ApplicationController
     pp @events.to_sql
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   private
 
   def for_topics

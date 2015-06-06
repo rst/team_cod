@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
-  resource :events do
-    get :search
+  resources :events do
+    collection do
+      get :show
+      get :search
+    end
   end
 end
