@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resource :events do
-    collection do
-      post :search
-    end
+    get :search
   end
 end

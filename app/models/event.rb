@@ -9,8 +9,9 @@ class Event < ActiveRecord::Base
     if topics.empty?
       self.none
     else
-      self.joins(:event_topics).where("event_topics.topic_id in (?)", 
-                                      topics.collect(&:id))
+      join_name = "topic_#{topics.first.id.to_i}"
+      self.joins("join event_topics as #{join_name} on #{join_name}.event_id = events.id")
+          .where("#{join_name}.topic_id in (?)", topics.collect(&:id))
     end
   end
 
@@ -25,7 +26,7 @@ class Event < ActiveRecord::Base
     topics.each do |topic|
       query = query.requiring_topic(topic)
     end
-    return query
+    query
   end
 
 end

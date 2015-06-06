@@ -1,9 +1,37 @@
 class EventsController < ApplicationController
   def search
-    topic_params = params.keys.grep /\Atopic-[0-9]+\z/
-    topic_id_strings = topic_params.collect{ |s| s.gsub(/^topic-/, '') }
+    @events = Event.for_topics(for_topics)
+                   .for_topics(time_topics)
+                   .for_topics(education_topics)
+    pp @events.to_sql
+  end
 
-    @topics = topic_id_strings.collect{|s| Topic.find s.to_i }
-    @events = Event.for_topics(@topics)
+  private
+
+  def for_topics
+    Topic.where(name: params[:for])
+  end
+
+  def education_topics
+    names = [:no_diploma]
+    if params[:education] == 'in_hs'
+      names << :in_highschool
+    end
+    if params[:education] == 'hs_graduate'
+      names << :diploma
+    end
+    Topic.where(name: names)
+  end
+
+  def time_topics
+    time = params[:time]
+    times = []
+    if ['part_time', 'both'].include? time
+      times << :part_time
+    end
+    if ['full_time', 'both'].include? time
+      times << :full_time
+    end
+    Topic.where(name: times)
   end
 end

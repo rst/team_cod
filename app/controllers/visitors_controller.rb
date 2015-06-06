@@ -2,7 +2,7 @@ class VisitorsController < ApplicationController
   def index
     page = current_page
     if page.nil?
-      raise "Need to search!"
+      return redirect_to search_events_url(params)
     end
     @title, elements = page
     @elements = elements.map { |e| url_for(e) }
