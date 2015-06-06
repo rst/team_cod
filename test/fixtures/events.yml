@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+cyber_jamboree:
   name: Cyber Phiber Job Jamboree
   starts_at: 2015-06-05 23:21:29
   address: Infinity Infinite Loop, Vega Cluster
