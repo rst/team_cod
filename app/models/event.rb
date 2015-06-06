@@ -19,4 +19,13 @@ class Event < ActiveRecord::Base
     self.joins("join event_topics as #{join_name} on #{join_name}.event_id = events.id")
       .where("#{join_name}.topic_id = ?", topic.id)
   end
+
+  def self.requiring_topics(topics)
+    query = self.all
+    topics.each do |topic|
+      query = query.requiring_topic(topic)
+    end
+    return query
+  end
+
 end

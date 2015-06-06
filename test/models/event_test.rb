@@ -41,15 +41,17 @@ class EventTest < ActiveSupport::TestCase
     cy = events(:cyber_jamboree)
 
     assert_equal [], Event.requiring_topic(retail).requiring_topic(prog).to_a
+    assert_equal [], Event.requiring_topics([retail, prog]).to_a
 
     cy.topics << retail
 
     assert_equal [cy], Event.requiring_topic(retail).to_a
-    assert_equal [], Event.requiring_topic(retail).requiring_topic(prog).to_a
+    assert_equal [], Event.requiring_topics([retail, prog]).to_a
 
     cy.topics << prog
 
     assert_equal [cy], Event.requiring_topic(retail).requiring_topic(prog).to_a
+    assert_equal [cy], Event.requiring_topics([retail, prog]).to_a
 
   end
 
