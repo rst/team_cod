@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :interests
   has_many :topics, through: :interests
+
+  def events_of_interest
+    Event.joins("join event_topics et on et.event_id = events.id")
+         .joins("join interests int on et.topic_id = int.topic_id")
+         .where("int.user_id = ?", self.id)
+  end
 end
