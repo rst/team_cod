@@ -3,6 +3,7 @@ class Topic < ActiveRecord::Base
 
   def fancy_name
     name
+      .sub(/(part|full)_time/, '\1-time')
       .sub('highschool', 'high_school')
       .split('_')
       .map(&:capitalize)

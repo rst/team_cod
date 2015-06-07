@@ -77,7 +77,7 @@ class VisitorsController < ApplicationController
     {
       key: :time,
       value: :part_time,
-      text: "Part Time"
+      text: "Part-time"
     }
   end
 
@@ -85,7 +85,7 @@ class VisitorsController < ApplicationController
     {
       key: :time,
       value: :full_time,
-      text: "Full Time"
+      text: "Full-time"
     }
   end
 
