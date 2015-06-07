@@ -9,13 +9,15 @@
     </div>
   </div>
 
-  <% @elements.each do |e| %>
-  <div class="row">
-    <div class="col-xs-12">
-      <p>
-        <a href="<%= e[:url] %>" class="btn btn-block btn-lg btn-primary"><%= e[:text] %></a>
-      </p>
+  <div class="bottom">
+    <% @elements.each do |e| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+          <a href="<%= e[:url] %>" class="btn btn-block btn-lg btn-primary"><%= e[:text] %></a>
+        </p>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

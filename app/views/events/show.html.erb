@@ -1,7 +1,7 @@
 <div class="container">
-  <h1><%= @event.name %></h1>
-  <p><%= raw(@event.description) %></p>
-  <p>
+  <h1 class="event_name"><%= @event.name %></h1>
+  <p class="event_description"><%= raw(@event.description) %></p>
+  <p class="event_topics">
     <% @event.topics.each do |topic| %>
     <span class="label label-success"><%= topic.fancy_name %></span>
     <% end %>
