@@ -23,8 +23,6 @@ class Importer
       topics_map[name.to_sym] = topic
     end
 
-    puts topics_map.inspect
-
     data.each do |key, event|
       event = event.symbolize_keys
 
@@ -44,7 +42,10 @@ class Importer
         end
         topics_map[name]
       }.compact
-
+      if Event.where(name: event[:name]).exists?
+        puts "skipping duplicate", event[:name]
+        next
+      end
       ev = Event.create! name: event[:name], description: event[:description]
 
       ev.topics << ev_topics
