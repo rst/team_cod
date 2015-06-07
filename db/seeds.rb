@@ -98,3 +98,30 @@ EventTopic.create! event: amc_film_crew, topic: job
 EventTopic.create! event: amc_film_crew, topic: no_diploma
 EventTopic.create! event: amc_film_crew, topic: full_time
 EventTopic.create! event: amc_film_crew, topic: part_time
+
+
+resilient_coders = Event.create!({name: "Resilient Coders", description: "
+Resilient Coders is a volunteer-based program focused on making web technology more available to urban youth who might not otherwise be exposed to it. It's a three-part program that funnels students from learning HTML after school, through our downtown \"Coworking\" sessions, and ultimately, hourly employment. Our higher performers participate in Resilient Lab, a web design and development shop with real clients.
+<br>
+<a href='http://resilientcoders.org/' class='btn btn-primary btn-lg'>Click here for more info!</a>
+"})
+EventTopic.create! event: resilient_coders, topic: training
+
+pipefitters = Event.create!({name: "Pipefitters 537 Apprenticeship", description: "
+The UA offers a comprehensive training program for all members. Pipefitters Local 537 offers a five year Apprenticeship program at no cost to the selected candidates. Apprentices work in the field on a graduating wage scale during their apprenticeship while being educated at our Training Center weeknights during the school year, allowing them to learn while they earn. <Br>
+On the job training with the best hands in the business means that at the end of your five years as an apprentice you will be a master craftsman/woman in the Pipefitting Business whether your path is of a Pipefitter, Welder or HVAC- Refrigeration Technician.<Br>
+UA Local 537 members are found on all commercial and industrial projects including school construction jobs, powerhouses, chip-fab plants, hospitals and universities.<br>
+Union benefits go beyond our excellent healthcare coverage and wages. As a union member your wages and benefits are guaranteed through the collective bargaining process.<br>
+Many people don’t know that if you work without a contract in ANY INDUSTRY, your employer can change your job description at will. They can even change your salary or decide that you are not eligible for overtime pay.<br>
+As a union member, your contract spells out your working conditions, which go far beyond your wages. Health and safety issues are clearly addressed in the contract, and you are provided with representation in the case that your rights are violated by an employer.<br>
+<br>
+<a href='http://www.pipefitters537.org/apprenticeship.aspx' class='btn btn-primary btn-lg'>Click here for more info!</a>
+"})
+EventTopic.create! event: pipefitters, topic: training
+
+ymca_office_skills = Event.create!({name: "YMCA Computerized Office Skills", description: "
+YMCA Training, Inc.’s Computerized Office Skills is a 20-week, full-time professional training program.  Working in a business environment, participants gain office and computer skills that prepare them to thrive in skilled employment.
+<br>
+<a href='http://ymcaboston.org/traininginc/traininginc-programs-job-seekers' class='btn btn-primary btn-lg'>Click here for more info!</a>
+"})
+EventTopic.create! event: ymca_office_skills, topic: training
