@@ -1,6 +1,11 @@
 <div class="container">
   <h1><%= @event.name %></h1>
   <p><%= @event.description %></p>
+  <p>
+    <% @event.topics.each do |topic| %>
+    <span class="label label-success"><%= topic.name.sub(/_/, ' ') %></span>
+    <% end %>
+  </p>
   <div class="well">
     <h3>Need help applying?</h3>
     <p>
