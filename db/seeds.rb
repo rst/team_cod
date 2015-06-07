@@ -18,9 +18,9 @@ full_time = Topic.create!({name: :full_time})
 
 resume_builder = Event.create!({name: "Resume Builder", description: "Come build your resume!" })
 job_fair = Event.create!({name: "Job Fair", description: "GET HIRED!"})
-data_entry = Event.create!({name: "Data Entry", description: "Zipcar"}) # Diploma, part time
+data_entry = Event.create!({name: "Data Entry", description: "Dunder Mifflin"}) # Diploma, part time
 receptionist = Event.create!({name: "Receptionist", description: "Microsoft"}) # Diploma, full time
-brand_ambassador = Event.create!({name: "Brand Ambassador", description: "Trip Advisor"}) # no diploma, after high school, full time
+brand_ambassador = Event.create!({name: "Brand Ambassador", description: "zipcar"}) # no diploma, after high school, full time
 dish_washer = Event.create!({name: "Dish Washer", description: "Restaurant"}) # no diploma, after high school, part time
 grocery_bagger = Event.create!({name: "Grocery Bagger", description: "Grocery Store"}) # in high school, part time
 cook = Event.create!({name: "Cook", description: "Restaurant"}) # in high school, part time
