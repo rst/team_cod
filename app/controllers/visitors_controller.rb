@@ -22,7 +22,9 @@ class VisitorsController < ApplicationController
   end
 
   def current_page
-    if params[:for].nil?
+    if params[:for] == "training"
+      nil
+    elsif params[:for].nil?
       ["Are you looking for...", [for_job, for_training]]
     elsif params[:education].nil?
       ["Are you...", [hs_graduate, in_hs, no_diploma]]

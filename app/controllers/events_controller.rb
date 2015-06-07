@@ -1,8 +1,12 @@
 class EventsController < ApplicationController
   def search
-    @events = Event.for_topics(for_topics)
+    if params[:for] == 'training'
+      @events = Event.for_topics(for_topics)
+    else
+      @events = Event.for_topics(for_topics)
                    .for_topics(time_topics)
                    .for_topics(education_topics)
+    end
     pp @events.to_sql
   end
 
