@@ -23,7 +23,7 @@ class VisitorsController < ApplicationController
 
   def current_page
     if params[:for].nil?
-      ["Are you looking...", [for_job, for_training]]
+      ["Are you looking for...", [for_job, for_training]]
     elsif params[:education].nil?
       ["Are you...", [hs_graduate, in_hs, no_diploma]]
     elsif params[:time].nil?
@@ -37,7 +37,7 @@ class VisitorsController < ApplicationController
     {
       key: :for,
       value: :job,
-      text: 'For a job'
+      text: 'A job'
     }
   end
 
@@ -45,7 +45,7 @@ class VisitorsController < ApplicationController
     {
       key: :for,
       value: :training,
-      text: 'For training'
+      text: 'Training'
     }
   end
 
