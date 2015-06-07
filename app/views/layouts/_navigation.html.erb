@@ -1,8 +1,13 @@
 <%# navigation styled for Bootstrap 3.0 %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-    <div class="navbar-header">
-      <%= link_to 'YouthHub', root_path, class: 'navbar-brand' %>
-    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="pull-left">
+        <%= link_to 'YouthHub', root_path %>
+      </li>
+      <li class="pull-right">
+        <a href="/contact">Contact Us</a>
+      </li>
+    </ul>
   </div>
 </nav>
