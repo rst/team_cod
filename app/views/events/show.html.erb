@@ -3,7 +3,7 @@
   <p><%= @event.description %></p>
   <p>
     <% @event.topics.each do |topic| %>
-    <span class="label label-success"><%= topic.name.sub(/_/, ' ') %></span>
+    <span class="label label-success"><%= topic.fancy_name %></span>
     <% end %>
   </p>
   <div class="well">
