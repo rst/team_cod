@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20150606180809) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "interests", ["topic_id"], name: "index_interests_on_topic_id", using: :btree
+  add_index "interests", ["user_id"], name: "index_interests_on_user_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.string   "name",       limit: 100
     t.datetime "created_at",             null: false
