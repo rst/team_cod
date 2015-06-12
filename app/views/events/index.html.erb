@@ -2,9 +2,10 @@
 
 <h1>Listing Events</h1>
 
-<table>
+<table class="eventlist">
   <thead>
     <tr>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.name %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :contact
   resources :events do
     collection do
-      get :show
       get :search
     end
   end

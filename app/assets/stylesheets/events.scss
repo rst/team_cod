@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.eventlist tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.eventlist tr:hover {
+  background: #ffd;
+}
+
+.eventlist tr td {
+  padding-right: 5px;
+}
+
 .event_description {
   margin-top: 20px;
   line-height: 1.5em;
