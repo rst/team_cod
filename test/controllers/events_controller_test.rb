@@ -20,6 +20,15 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'show'
     assert_equal events(:cyber_jamboree), assigns(:event)
+    assert_select 'div.edit_navigation_links'
+  end
+
+  def test_show_signed_out
+    sign_out users(:lucy)       # When user is signed out...
+    get :show, id: events(:cyber_jamboree).id.to_s
+    assert_response :success
+    assert_template 'show'
+    assert_select 'div.edit_navigation_links', false # ... these don't show up.
   end
 
   def test_new

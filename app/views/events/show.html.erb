@@ -12,4 +12,11 @@
       <a href="/contact" class="btn btn-primary btn-block btn-md">Contact YouthHub</a>
     </p>
   </div>
+
+  <% if user_signed_in? %>
+    <div class="edit_navigation_links">
+      <%= link_to 'Edit', edit_event_url(@event) %> |
+      <%= link_to 'Back', events_path %>
+    </div>
+  <% end %>
 </div>
