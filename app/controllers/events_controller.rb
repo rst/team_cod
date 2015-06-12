@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  include TopicListHelper
+
   def search
     if params[:for] == 'training'
       @events = Event.for_topics(for_topics)
@@ -39,6 +42,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        @event.topics = topic_list_from_checkboxes
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -53,6 +57,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
+        @event.topics = topic_list_from_checkboxes
         format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else

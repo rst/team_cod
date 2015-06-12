@@ -1,4 +1,11 @@
 <%= form_for(@event) do |f| %>
+
+  <ul class="event_list_topic_selection_list">
+    <% Topic.all.each do |topic| %>
+      <%= topic_list_item_with_checkbox(topic, @event.topics.include?(topic)) %>
+    <% end %>
+  </ul>
+
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
