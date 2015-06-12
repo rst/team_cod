@@ -3,6 +3,11 @@ require 'test_helper'
 class EventsControllerTest < ActionController::TestCase
 
   include TopicListHelper
+  include Devise::TestHelpers
+
+  setup do
+    sign_in users(:lucy)
+  end
 
   def test_index
     get :index

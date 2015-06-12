@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:search, :show]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+
   include TopicListHelper
 
   def search
@@ -12,8 +15,6 @@ class EventsController < ApplicationController
     end
     pp @events.to_sql
   end
-
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
