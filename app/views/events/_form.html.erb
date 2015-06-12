@@ -2,7 +2,8 @@
 
   <ul class="event_list_topic_selection_list">
     <% Topic.all.each do |topic| %>
-      <%= topic_list_item_with_checkbox(topic, @event.topics.include?(topic)) %>
+      <%= topic_list_item_with_checkbox(topic,
+                                        @selected_topics.include?(topic)) %>
     <% end %>
   </ul>
 

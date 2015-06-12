@@ -29,20 +29,23 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @selected_topics = []
   end
 
   # GET /events/1/edit
   def edit
+    @selected_topics = @event.topics.to_a
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @selected_topics = topic_list_from_checkboxes
 
     respond_to do |format|
       if @event.save
-        @event.topics = topic_list_from_checkboxes
+        @event.topics = @selected_topics
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -55,9 +58,11 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @selected_topics = topic_list_from_checkboxes
+
     respond_to do |format|
       if @event.update(event_params)
-        @event.topics = topic_list_from_checkboxes
+        @event.topics = @selected_topics
         format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else

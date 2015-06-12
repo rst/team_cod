@@ -1,8 +1,12 @@
 module TopicListHelper
 
+  def topic_param_name(topic)
+    "topic-#{topic.id.to_i}"
+  end
+
   def topic_list_item_with_checkbox(topic, checked)
     content_tag 'li' do
-      check_box_tag("topic-#{topic.id.to_i}","checked",checked)+raw(topic.name)
+      check_box_tag("topic-#{topic.id.to_i}", "1", checked) + topic.name
     end
   end
 
