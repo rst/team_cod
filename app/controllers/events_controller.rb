@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         @event.topics = @selected_topics
-        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         @event.topics = @selected_topics
-        format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

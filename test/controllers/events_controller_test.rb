@@ -81,7 +81,9 @@ class EventsControllerTest < ActionController::TestCase
 
     post :create, event: ev_params, topic_param_name(topics(:retail)) => '1'
 
-    assert_redirected_to events_path
+    ev = Event.where(name: 'Blue Room').first
+    assert_not_nil ev
+    assert_redirected_to event_path(ev)
     
     ev = Event.where(name: 'Blue Room').first
     assert_equal ev_params[:address], ev.address
@@ -118,7 +120,7 @@ class EventsControllerTest < ActionController::TestCase
          event: {description: new_desc}, 
          topic_param_name(topics(:programming)) => '1'
 
-    assert_redirected_to events_path
+    assert_redirected_to event_path(events(:cyber_jamboree))
     assert_equal new_desc, events(:cyber_jamboree).reload.description
     assert_equal [topics(:programming)], events(:cyber_jamboree).topics.to_a
 
