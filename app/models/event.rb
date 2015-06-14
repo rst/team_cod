@@ -5,6 +5,10 @@ class Event < ActiveRecord::Base
 
   validates :name, length: {minimum: 1, maximum: 200}
 
+  def has_topic_named?(name)
+    topics.collect(&:name).include?(name)
+  end
+
   def self.for_topics(topics)
     if topics.empty?
       self.none

@@ -14,6 +14,14 @@ class EventTest < ActiveSupport::TestCase
     assert_equal [t], ev.topics(:reload).to_a
   end
 
+  def test_has_topic_named
+    ev = events(:cyber_jamboree)
+    assert !ev.has_topic_named?('Programming')
+
+    ev.topics << topics(:programming)
+    assert ev.has_topic_named?('Programming')
+  end
+
   def test_event_for_topics
 
     assert_equal [], Event.for_topics([])

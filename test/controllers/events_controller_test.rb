@@ -31,6 +31,27 @@ class EventsControllerTest < ActionController::TestCase
     assert_select 'div.edit_navigation_links', false # ... these don't show up.
   end
 
+  def test_show_url_display
+    ev = events(:cyber_jamboree)
+
+    get :show, id: ev.id.to_s
+    assert_response :success
+    assert_select '.apply-btn', false
+    assert_select '.info-btn', false
+
+    ev.update_attributes! url: 'http://cyber-jamboree.org'
+    get :show, id: ev.id.to_s
+    assert_response :success
+    assert_select '.apply-btn', false
+    assert_select '.info-btn', true
+
+    ev.topics << Topic.create!(name: 'job')
+    get :show, id: ev.id.to_s
+    assert_response :success
+    assert_select '.apply-btn', true
+    assert_select '.info-btn', false
+  end
+
   def test_new
     get :new
     assert_response :success

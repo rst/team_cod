@@ -6,6 +6,16 @@
     <span class="label label-success"><%= topic.fancy_name %></span>
     <% end %>
   </p>
+  <% unless @event.url.blank? %>
+    <% if @event.has_topic_named?('job') %>
+      <%= link_to "Click here to apply!", @event.url,
+          class: "btn btn-primary btn-lg apply-btn" %>
+    <% else %>
+      <%= link_to "Click here for more info!", @event.url,
+          class: "btn btn-primary btn-lg info-btn" %>
+    <% end %>
+    <p/>
+  <% end %>
   <div class="well">
     <h3>Need help applying?</h3>
     <p>
