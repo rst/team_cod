@@ -5,7 +5,7 @@ module TopicListHelper
   end
 
   def topic_list_item_with_checkbox(topic, checked)
-    content_tag 'li' do
+    content_tag 'div', class: 'checkbox' do
       check_box_tag("topic-#{topic.id.to_i}", "1", checked) + topic.name
     end
   end
