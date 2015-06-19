@@ -51,7 +51,7 @@ EOF
     res = @client.search(params)
 
     if res.nil? || res['results'].nil?
-      raise IOError('Problem dealing with Indeed client')
+      raise IOError, 'Problem dealing with Indeed client'
     end
 
     res['results']
@@ -104,15 +104,19 @@ EOF
 
 end
 
+# Sample usage:
 
-dumper = IndeedDumper.new
-dumper.query_to_file({
-                       jt: 'fulltime',
-                       limit: 25
-                     }, [:full_time],
-                    'full_time.yml')
-dumper.query_to_file({
-                       jt: 'parttime',
-                       limit: 25
-                     }, [:part_time],
-                    'part_time.yml')
+if false
+  dumper = IndeedDumper.new
+  dumper.query_to_file({
+                         jt: 'fulltime',
+                         limit: 25
+                       }, [:full_time],
+                       'full_time.yml')
+  dumper.query_to_file({
+                         jt: 'parttime',
+                         limit: 25
+                       }, [:part_time],
+                       'part_time.yml')
+end
+

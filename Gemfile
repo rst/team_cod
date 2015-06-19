@@ -22,3 +22,9 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
+# We're not using indeed-ruby, but there's dummy query code in app/models,
+# which gets loaded in production, so to keep that from blowing up
+# on a failed 'require', we need this in the Gemfile.
+
+gem 'indeed-ruby'
