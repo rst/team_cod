@@ -23,6 +23,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+gem 'rails_12factor', group: :production
 
 # We're not using indeed-ruby, but there's dummy query code in app/models,
 # which gets loaded in production, so to keep that from blowing up
