@@ -99,13 +99,17 @@ EventTopic.create! event: resilient_coders, topic: training
 
 pipefitters = Event.create!({name: "Pipefitters 537 Apprenticeship", 
 url: "http://www.pipefitters537.org/apprenticeship.aspx",
-description: "
-The UA offers a comprehensive training program for all members. Pipefitters Local 537 offers a five year Apprenticeship program at no cost to the selected candidates. Apprentices work in the field on a graduating wage scale during their apprenticeship while being educated at our Training Center weeknights during the school year, allowing them to learn while they earn. <Br>
-On the job training with the best hands in the business means that at the end of your five years as an apprentice you will be a master craftsman/woman in the Pipefitting Business whether your path is of a Pipefitter, Welder or HVAC- Refrigeration Technician.<Br>
-UA Local 537 members are found on all commercial and industrial projects including school construction jobs, powerhouses, chip-fab plants, hospitals and universities.<br>
-Union benefits go beyond our excellent healthcare coverage and wages. As a union member your wages and benefits are guaranteed through the collective bargaining process.<br>
-Many people don’t know that if you work without a contract in ANY INDUSTRY, your employer can change your job description at will. They can even change your salary or decide that you are not eligible for overtime pay.<br>
-As a union member, your contract spells out your working conditions, which go far beyond your wages. Health and safety issues are clearly addressed in the contract, and you are provided with representation in the case that your rights are violated by an employer.<br>
+description: "The UA offers a comprehensive training program for all members. Pipefitters Local 537 offers a five year Apprenticeship program at no cost to the selected candidates. Apprentices work in the field on a graduating wage scale during their apprenticeship while being educated at our Training Center weeknights during the school year, allowing them to learn while they earn.
+
+On the job training with the best hands in the business means that at the end of your five years as an apprentice you will be a master craftsman/woman in the Pipefitting Business whether your path is of a Pipefitter, Welder or HVAC- Refrigeration Technician.
+
+UA Local 537 members are found on all commercial and industrial projects including school construction jobs, powerhouses, chip-fab plants, hospitals and universities.
+
+Union benefits go beyond our excellent healthcare coverage and wages. As a union member your wages and benefits are guaranteed through the collective bargaining process.
+
+Many people don’t know that if you work without a contract in ANY INDUSTRY, your employer can change your job description at will. They can even change your salary or decide that you are not eligible for overtime pay.
+
+As a union member, your contract spells out your working conditions, which go far beyond your wages. Health and safety issues are clearly addressed in the contract, and you are provided with representation in the case that your rights are violated by an employer.
 "})
 EventTopic.create! event: pipefitters, topic: training
 
