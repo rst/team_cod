@@ -13,7 +13,6 @@ class EventsController < ApplicationController
                    .for_topics(time_topics)
                    .for_topics(education_topics)
     end
-    pp @events.to_sql
   end
 
   # GET /events
