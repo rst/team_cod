@@ -3,6 +3,16 @@
   <% by_paragraphs(@event.description).each do |graf| %>
     <p class="event_description"><%= graf %></p>
   <% end %>
+  <% unless @event.address.blank? %>
+    <div class="event_address">
+      <a href="<%= event_map_link(@event) %>"
+         class="glyphicon glyphicon-map-marker action_glyph"></a>
+      <h3>Address</h3>
+      <% @event.address.each_line do |line| %>
+        <%= line %><br/>
+      <% end %>
+    </div>
+  <% end %>
   <p class="event_topics">
     <% @event.topics.each do |topic| %>
     <span class="label label-success"><%= topic.fancy_name %></span>
