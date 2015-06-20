@@ -5,9 +5,12 @@
       <li class="pull-left">
         <%= link_to 'YouthHub', root_path %>
       </li>
-      <li class="pull-right">
+      <li>
         <a href="/contact">Contact Us</a>
       </li>
+      <% if user_signed_in? %>
+        <%= render partial: 'layouts/navigation_links' %>
+      <% end %>
     </ul>
   </div>
 </nav>
