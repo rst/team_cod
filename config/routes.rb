@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :contact
-  resources :events do
+  resources :listings, controller: 'events', as: 'events' do
     collection do
       get :search
     end

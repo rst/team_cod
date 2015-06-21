@@ -2,12 +2,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <ul class="nav navbar-nav navbar-left">
-      <li class="pull-left">
-        <%= link_to 'YouthHub', root_path %>
-      </li>
-      <li>
-        <a href="/contact">Contact Us</a>
-      </li>
       <% if user_signed_in? %>
         <%= render partial: 'layouts/navigation_links' %>
       <% end %>
