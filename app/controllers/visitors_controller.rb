@@ -25,7 +25,9 @@ class VisitorsController < ApplicationController
     if params[:for] == "training"
       nil
     elsif params[:for].nil?
-      ["Are you looking for...", [for_job, for_training]]
+      ["This app can help you find jobs and events to help with your search.
+        <br/><br/>Are you looking for...", 
+       [for_job, for_training]]
     elsif params[:education].nil?
       ["Are you...", [hs_graduate, in_hs, no_diploma]]
     elsif params[:time].nil?
