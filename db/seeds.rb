@@ -15,11 +15,6 @@ no_diploma = Topic.create!({name: :no_diploma})
 part_time = Topic.create!({name: :part_time})
 full_time = Topic.create!({name: :full_time})
 
-resume_builder = Event.create!({name: "Resume Builder", description: "Come build your resume!" })
-job_fair = Event.create!({name: "Job Fair", description: "GET HIRED!"})
-EventTopic.create! event: resume_builder, topic: training
-EventTopic.create! event: job_fair, topic: training
-
 # real data
 kfc_team_member = Event.create!({name: "KFC Team Member", 
 url: "https://jobs.kfc.com/job/dorchester/kfc-team-member/1672/148210",
