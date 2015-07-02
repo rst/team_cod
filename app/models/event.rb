@@ -5,9 +5,52 @@ class Event < ActiveRecord::Base
 
   validates :name, length: {minimum: 1, maximum: 200}
 
+  ################################################################
+  # Instance stuff...
+
+  # quick check for specific topics
+
   def has_topic_named?(name)
     topics.collect(&:name).include?(name)
   end
+
+  # Pseudo-attribute which backs "expires in X days" in UI.
+  #
+  # The rule is that if expires_in_days is 1, then expires_at is
+  # DateTime.today.at_end_of_day.  If it's a different integer, then
+  # the value is adjusted from there by calendar days as one would
+  # expect.  See tests...
+
+  validates :expires_in_days, numericality: {
+    only_integer: true, 
+    allow_blank: true}
+
+  def expires_at=(value)
+    write_attribute(:expires_at, value)
+    @expires_in_days = nil      # force recomputation, if desired...
+  end
+
+  def expires_in_days
+    @expires_in_days ||= 
+      if expires_at.blank?
+        nil
+      else
+        (((expires_at - Time.zone.now) / (24*60*60)).floor + 1)
+      end
+  end
+
+  def expires_in_days=(value)
+    if value.blank?
+      self.expires_at = nil
+    else
+      ndays = value.to_i - 1
+      self.expires_at = (DateTime.now.in_time_zone + ndays.days).at_end_of_day
+    end
+    @expires_in_days = value
+  end
+
+  ################################################################
+  # Queries
 
   def self.for_topics(topics)
     if topics.empty?

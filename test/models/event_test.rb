@@ -14,12 +14,49 @@ class EventTest < ActiveSupport::TestCase
     assert_equal [t], ev.topics(:reload).to_a
   end
 
+  def test_validations
+    ev = Event.new
+    do_test_validation ev, :name, invalid: ['', 'x'*1000], valid: ['foo']
+    do_test_validation ev, :expires_in_days,
+      invalid: ['x', '3x', '2.5', 'three'],
+      valid: [nil, '', '-1', '0', '5', '500']
+    assert ev.valid?
+  end
+
   def test_has_topic_named
     ev = events(:cyber_jamboree)
     assert !ev.has_topic_named?('Programming')
 
     ev.topics << topics(:programming)
     assert ev.has_topic_named?('Programming')
+  end
+
+  def test_set_expires_in_days
+    ev = Event.new
+    ev.expires_in_days = 1
+
+    # Time equality operators are myteriously finicky in Rails 4.2, hence
+    # the ".to_s" nonsense...
+
+    assert_equal Time.zone.now.at_end_of_day.to_s, ev.expires_at.to_s
+    ev.expires_in_days = 2
+    assert_equal (Time.zone.now + 1.day).at_end_of_day.to_s, ev.expires_at.to_s
+    ev.expires_in_days = 3
+    assert_equal (Time.zone.now + 2.days).at_end_of_day.to_s, ev.expires_at.to_s
+    ev.expires_in_days = 0
+    assert_equal (Time.zone.now - 1.day).at_end_of_day.to_s, ev.expires_at.to_s
+  end
+
+  def test_compute_expires_in_days
+    ev = Event.new
+    ev.expires_at = Time.zone.now.at_end_of_day
+    assert_equal 1, ev.expires_in_days
+    ev.expires_at = 2.days.from_now.at_end_of_day
+    assert_equal 3, ev.expires_in_days
+    ev.expires_at = 1.day.ago.at_end_of_day
+    assert_equal 0, ev.expires_in_days
+    ev.expires_at = 2.days.ago.at_end_of_day
+    assert_equal -1, ev.expires_in_days
   end
 
   def test_event_for_topics
