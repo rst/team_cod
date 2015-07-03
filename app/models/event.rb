@@ -50,7 +50,24 @@ class Event < ActiveRecord::Base
   end
 
   ################################################################
-  # Queries
+  # Queries, scopes, etc.
+
+  def self.where_current
+    # The coalesce replaces a null "expires_at" with now(), so the >= succeeds.
+    self.where("coalesce(expires_at, now()) >= now()")
+  end
+
+  def self.where_expired
+    self.where("expires_at < now()")
+  end
+
+  def self.order_expiring_first
+    self.order("expires_at asc nulls last")
+  end
+
+  def self.order_recently_expired_first
+    self.order("expires_at desc")
+  end
 
   def self.for_topics(topics)
     if topics.empty?

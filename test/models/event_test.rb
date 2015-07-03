@@ -59,6 +59,30 @@ class EventTest < ActiveSupport::TestCase
     assert_equal -1, ev.expires_in_days
   end
 
+  def test_expiry_scopes_and_sorts
+
+    # Start with a clean tbl...
+
+    Event.all.each { |ev| ev.destroy }
+
+    # Create some events
+
+    expired   = Event.create! name: "expired",   expires_in_days: -1
+    expiredd  = Event.create! name: "expiredd",  expires_in_days: -10
+    expiring  = Event.create! name: "expiring",  expires_in_days: 1
+    current   = Event.create! name: "current",   expires_in_days: 7
+    continual = Event.create! name: "continual", expires_in_days: nil
+
+    # Verify that our stock scopes and orderings do right with these...
+
+    assert_equal [expiring, current, continual],
+      Event.where_current.order_expiring_first.to_a
+
+    assert_equal [expired, expiredd],
+      Event.where_expired.order_recently_expired_first.to_a
+    
+  end
+
   def test_event_for_topics
 
     assert_equal [], Event.for_topics([])
