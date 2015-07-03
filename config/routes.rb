@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :listings, controller: 'events', as: 'events' do
     collection do
       get :search
+      get :expired
     end
   end
 end

@@ -36,6 +36,11 @@
   </div>
 
   <% if user_signed_in? %>
+    <% if !@event.expires_in_days.nil? %>
+      <div>Expires in <%= @event.expires_in_days %> days.</div>
+    <% else %>
+      <div>No set expiration date.</div>
+    <% end %>
     <div class="edit_navigation_links">
       <%= link_to 'Edit', edit_event_url(@event) %> |
       <%= link_to 'Other listings', events_path %>

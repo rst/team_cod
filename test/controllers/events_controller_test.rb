@@ -13,6 +13,16 @@ class EventsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_template 'index'
+    assert_equal Event.where_current.to_a, assigns(:events).to_a
+    assert_select "h1#current_header"
+  end
+
+  def test_expired
+    get :expired
+    assert_response :success
+    assert_template 'index'
+    assert_equal Event.where_expired.to_a, assigns(:events).to_a
+    assert_select "h1#expired_header"
   end
 
   def test_show

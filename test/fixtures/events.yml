@@ -5,3 +5,7 @@ cyber_jamboree:
   starts_at: 2015-06-05 23:21:29
   address: Infinity Infinite Loop, Vega Cluster
   description: Code in spaaaaaaace!!!!
+
+expired:
+  name: Defunct event
+  expires_at: 2001-01-01

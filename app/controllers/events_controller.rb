@@ -7,9 +7,10 @@ class EventsController < ApplicationController
 
   def search
     if params[:for] == 'training'
-      @events = Event.for_topics(for_topics)
+      @events = Event.where_current.for_topics(for_topics)
     else
-      @events = Event.for_topics(for_topics)
+      @events = Event.where_current
+                   .for_topics(for_topics)
                    .for_topics(time_topics)
                    .for_topics(education_topics)
     end
@@ -18,7 +19,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.order("created_at desc")
+    @events = Event.where_current.order_expiring_first
+  end
+
+  # GET /events/expired
+  def expired
+    @events = Event.where_expired.order_recently_expired_first
+    @showing_expired = true
+    render action: 'index'
   end
 
   # GET /events/1
@@ -90,7 +98,8 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params[:event].permit(:name, :address, :description, :url)
+      params[:event].permit(:name, :address, :description, :url,
+                            :expires_in_days)
     end
 
   private

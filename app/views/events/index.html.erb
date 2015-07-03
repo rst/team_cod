@@ -1,4 +1,10 @@
-<h1>Current Listings (<%= link_to 'Add', new_event_path %>)</h1>
+<% if @showing_expired %>
+  <h1 id="expired_header">Expired Listings</h1>
+  See <%= link_to "current listings", events_path %>
+<% else %>
+  <h1 id="current_header">Current Listings (<%= link_to 'Add', new_event_path %>)</h1>
+  See <%= link_to "expired listings", expired_events_path %>
+<% end %>
 
 <table class="table table-hover">
   <thead>
