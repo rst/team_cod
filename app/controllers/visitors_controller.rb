@@ -26,7 +26,7 @@ class VisitorsController < ApplicationController
       nil
     elsif params[:for].nil?
       ["This app can help you find jobs and events to help with your search.
-        <br/><br/>Are you looking for...", 
+        <br/><br/>Are you looking...",
        [for_job, for_training]]
     elsif params[:education].nil?
       ["Are you...", [hs_graduate, in_hs, no_diploma]]
@@ -41,7 +41,7 @@ class VisitorsController < ApplicationController
     {
       key: :for,
       value: :job,
-      text: 'A job'
+      text: '...for a job?'
     }
   end
 
@@ -49,7 +49,7 @@ class VisitorsController < ApplicationController
     {
       key: :for,
       value: :training,
-      text: 'Training'
+      text: '...to build your skills?'
     }
   end
 
