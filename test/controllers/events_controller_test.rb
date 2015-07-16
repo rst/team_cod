@@ -17,6 +17,13 @@ class EventsControllerTest < ActionController::TestCase
     assert_select "h1#current_header"
   end
 
+  def test_index_not_admin
+    users(:lucy).update_attributes! admin: false
+    get :index
+    assert_redirected_to root_path
+    assert_match /Not authorized/i, flash[:warning]
+  end
+
   def test_expired
     get :expired
     assert_response :success
