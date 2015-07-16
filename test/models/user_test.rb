@@ -20,4 +20,14 @@ class UserTest < ActiveSupport::TestCase
 
   end
 
+  def test_create_with_random_pw
+    # Hard to explicitly test the "random, throwaway password" part,
+    # but we can do this...
+
+    user = User.create_with_random_password! email: 'boho@bobo.com'
+    assert user.is_a?(User)
+    assert !user.new_record?
+    assert_equal 'boho@bobo.com', user.email
+  end
+
 end
