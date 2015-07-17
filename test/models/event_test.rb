@@ -124,4 +124,29 @@ class EventTest < ActiveSupport::TestCase
 
   end
 
+  def test_name_matching_pattern
+
+    mit_esp = Event.create! name: "MIT ESP"
+    mit_iap = Event.create! name: "MIT IAP"
+    EventTopic.create! event: mit_iap, topic: topics(:programming)
+
+    # Test single token
+
+    assert_equal ["MIT ESP", "MIT IAP"],
+      Event.where_name_matches_pattern("mit").collect(&:name).sort
+
+    # Test multiple tokens (case insensitive, out of order)
+
+    assert_equal ["MIT IAP"],
+      Event.where_name_matches_pattern("IaP mIt").collect(&:name)
+
+    # Test cascade with other conditions
+
+    assert_equal ["MIT IAP"],
+      Event.requiring_topic(topics(:programming))
+           .where_name_matches_pattern("mit")
+           .collect(&:name)
+
+  end
+
 end

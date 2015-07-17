@@ -93,4 +93,14 @@ class Event < ActiveRecord::Base
     query
   end
 
+  # Condition which retrieves events whose names match the pattern.
+  # Fairly loose match:  we look for all blank-separated tokens in
+  # the pattern, in any order.
+
+  def self.where_name_matches_pattern(pat)
+    pat.split.inject(self){ |scope, fragment| 
+      scope.where('lower(name) like ?', "%#{fragment.downcase}%")
+    }.all
+  end
+
 end
