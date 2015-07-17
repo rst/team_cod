@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     collection do
       get :search
       get :expired
+      get :expired_matching_pattern
+      get :index_matching_pattern
     end
   end
 end

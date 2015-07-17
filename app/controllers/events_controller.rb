@@ -20,13 +20,27 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.where_current.order_expiring_first
+    @search_form_url = index_matching_pattern_events_url
+  end
+
+  def index_matching_pattern
+    @events = Event.where_current.order_expiring_first
+    @events = @events.where_name_matches_pattern(params[:pattern] || '')
+    render partial: 'listings_table'
   end
 
   # GET /events/expired
   def expired
     @events = Event.where_expired.order_recently_expired_first
     @showing_expired = true
+    @search_form_url = expired_matching_pattern_events_url
     render action: 'index'
+  end
+
+  def expired_matching_pattern
+    @events = Event.where_expired.order_recently_expired_first
+    @events = @events.where_name_matches_pattern(params[:pattern] || '')
+    render partial: 'listings_table'
   end
 
   # GET /events/1

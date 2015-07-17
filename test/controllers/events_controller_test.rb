@@ -14,6 +14,7 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'index'
     assert_equal Event.where_current.to_a, assigns(:events).to_a
+    assert_equal index_matching_pattern_events_url, assigns(:search_form_url)
     assert_select "h1#current_header"
   end
 
@@ -22,7 +23,28 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'index'
     assert_equal Event.where_expired.to_a, assigns(:events).to_a
+    assert_equal expired_matching_pattern_events_url, assigns(:search_form_url)
     assert_select "h1#expired_header"
+  end
+
+  def test_index_matching_pattern
+    post :index_matching_pattern, pattern: ''
+    assert_response :success
+    assert_equal Event.where_current.to_a, assigns(:events).to_a
+
+    post :index_matching_pattern, pattern: 'xxxxxxxx matches nothing'
+    assert_response :success
+    assert_equal [], assigns(:events).to_a
+  end
+
+  def test_expired_matching_pattern
+    post :expired_matching_pattern, pattern: ''
+    assert_response :success
+    assert_equal Event.where_expired.to_a, assigns(:events).to_a
+
+    post :expired_matching_pattern, pattern: 'xxxxxxxx matches nothing'
+    assert_response :success
+    assert_equal [], assigns(:events).to_a
   end
 
   def test_show
