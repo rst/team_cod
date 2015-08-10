@@ -2,7 +2,7 @@ class VisitorsController < ApplicationController
   def index
     page = current_page
     if page.nil?
-      raise "Need to search!"
+      return redirect_to search_events_url(params)
     end
     @title, elements = page
     @elements = elements.map { |e| url_for(e) }
@@ -22,8 +22,12 @@ class VisitorsController < ApplicationController
   end
 
   def current_page
-    if params[:for].nil?
-      ["Are you looking...", [for_job, for_training]]
+    if params[:for] == "training"
+      nil
+    elsif params[:for].nil?
+      ["This app can help you find jobs and events to help with your search.
+        <br/><br/>Are you looking...",
+       [for_job, for_training]]
     elsif params[:education].nil?
       ["Are you...", [hs_graduate, in_hs, no_diploma]]
     elsif params[:time].nil?
@@ -37,7 +41,7 @@ class VisitorsController < ApplicationController
     {
       key: :for,
       value: :job,
-      text: 'For a job'
+      text: '...for a job?'
     }
   end
 
@@ -45,7 +49,7 @@ class VisitorsController < ApplicationController
     {
       key: :for,
       value: :training,
-      text: 'For training'
+      text: '...to build your skills?'
     }
   end
 
@@ -77,7 +81,7 @@ class VisitorsController < ApplicationController
     {
       key: :time,
       value: :part_time,
-      text: "Part Time"
+      text: "Part-time"
     }
   end
 
@@ -85,7 +89,7 @@ class VisitorsController < ApplicationController
     {
       key: :time,
       value: :full_time,
-      text: "Full Time"
+      text: "Full-time"
     }
   end
 

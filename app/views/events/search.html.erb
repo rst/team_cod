@@ -1,13 +1,28 @@
-<% if @events.empty? %>
-  <h2>No events found</h2>
-<% else %>
-  <ul class="events_list">
-    <% @events.each do |event| %>
-      <li>
-         <div class="event_name"><%= event.name %></div>
-         <div class="event_date"><%= event.starts_at %></div>
-         <div class="event_description"><%= event.description %></div>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <% if @events.empty? %>
+  <div class="jumbotron">
+    <h2>No events found</h2>
+  </div>
+  <% else %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Current Listings</h2>
+      <% @events.each do |event| %>
+      <p>
+        <a class="event_name" href="<%= url_for event %>">
+          <h3>
+            <%= event.name %>
+          </h3>
+        </a>
+      </p>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <div class="well">
+    <h3>Need more?</h3>
+    <p>
+      <a href="/contact" class="btn btn-primary btn-block btn-md">Contact YouthHub</a>
+    </p>
+  </div>
+</div>

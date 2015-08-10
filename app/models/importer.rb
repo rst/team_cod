@@ -20,37 +20,35 @@ class Importer
         puts "creating topic '#{name}'"
         topic = Topic.create! name: name
       end
-      topics_map[name] = topic
+      topics_map[name.to_sym] = topic
     end
 
-    puts topics_map.inspect
-
     data.each do |key, event|
+      event = event.symbolize_keys
 
-      if event['name'].nil?
+      if event[:name].nil?
         puts "Name missing for #{key}"
         next
       end
 
-      if event['description'].nil?
+      if event[:description].nil?
         puts "Description missing for #{key}"
         next
       end
 
-      ev_topic_names = event["topics"].split
-      ev_topics = ev_topic_names.collect { |name|
+      ev_topics = event[:topics].collect { |name|
         if topics_map[name].nil?
           puts "Unknown topic: '#{name}'"
         end
         topics_map[name]
-      }
-      ev_topics = ev_topics.compact
-
-      ev = Event.create! name: event['name'], description: event['description']
-
-      ev_topics.each do |topic|
-        ev.topics << topic
+      }.compact
+      if Event.where(name: event[:name]).exists?
+        puts "skipping duplicate", event[:name]
+        next
       end
+      ev = Event.create! name: event[:name], description: event[:description]
+
+      ev.topics << ev_topics
     end
 
   end

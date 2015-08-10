@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-gem 'rails', '4.2.1'
+ruby '2.2.2'
+gem 'rails', '4.2.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -22,3 +23,10 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+gem 'rails_12factor', group: :production
+
+# We're not using indeed-ruby, but there's dummy query code in app/models,
+# which gets loaded in production, so to keep that from blowing up
+# on a failed 'require', we need this in the Gemfile.
+
+gem 'indeed-ruby'

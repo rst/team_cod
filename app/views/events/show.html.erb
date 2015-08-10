@@ -1,0 +1,49 @@
+<div class="container">
+  <h1 class="event_name"><%= @event.name %></h1>
+  <% by_paragraphs(@event.description).each do |graf| %>
+    <p class="event_description"><%= graf %></p>
+  <% end %>
+  <% unless @event.address.blank? %>
+    <div class="event_address">
+      <a href="<%= event_map_link(@event) %>"
+         class="glyphicon glyphicon-map-marker action_glyph"></a>
+      <h3>Address</h3>
+      <% @event.address.each_line do |line| %>
+        <%= line %><br/>
+      <% end %>
+    </div>
+  <% end %>
+  <p class="event_topics">
+    <% @event.topics.each do |topic| %>
+    <span class="label label-success"><%= topic.fancy_name %></span>
+    <% end %>
+  </p>
+  <% unless @event.url.blank? %>
+    <% if @event.has_topic_named?('job') %>
+      <%= link_to "Click here to apply!", @event.url,
+          class: "btn btn-primary btn-lg apply-btn" %>
+    <% else %>
+      <%= link_to "Click here for more info!", @event.url,
+          class: "btn btn-primary btn-lg info-btn" %>
+    <% end %>
+    <p/>
+  <% end %>
+  <div class="well">
+    <h3>Need help applying?</h3>
+    <p>
+      <a href="/contact" class="btn btn-primary btn-block btn-md">Contact YouthHub</a>
+    </p>
+  </div>
+
+  <% if user_signed_in? %>
+    <% if !@event.expires_in_days.nil? %>
+      <div>Expires in <%= @event.expires_in_days %> days.</div>
+    <% else %>
+      <div>No set expiration date.</div>
+    <% end %>
+    <div class="edit_navigation_links">
+      <%= link_to 'Edit', edit_event_url(@event) %> |
+      <%= link_to 'Other listings', events_path %>
+    </div>
+  <% end %>
+</div>

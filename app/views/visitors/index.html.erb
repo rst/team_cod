@@ -1,21 +1,20 @@
 <div class="container-fluid">
-  <div class="jumbotron">
-    <h3>Welcome to YouthHub!</h3>
-  </div>
 
   <div class="row">
     <div class="col-xs-12">
-      <h1><%= @title %></h1>
+      <h2><%= raw(@title) %></h2>
     </div>
   </div>
 
-  <% @elements.each do |e| %>
-  <div class="row">
-    <div class="col-xs-12">
-      <p>
-        <a href="<%= e[:url] %>" class="btn btn-block btn-lg btn-primary"><%= e[:text] %></a>
-      </p>
+  <div class="bottom">
+    <% @elements.each do |e| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+          <a href="<%= e[:url] %>" class="btn btn-block btn-lg btn-primary"><%= e[:text] %></a>
+        </p>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
