@@ -83,6 +83,13 @@ class EventTest < ActiveSupport::TestCase
     
   end
 
+  def test_topics_by_groups
+    a, b, c, d, e, f = %w(a b c d e f).map{ |n| Topic.create! name: n }
+    assert_equal [[a], [c, d], [f]], 
+                 Event.topics_by_groups([f, a, c, d], 
+                                        [[a, b], [c, d], [e]])
+  end
+
   def test_event_for_topics
 
     assert_equal [], Event.for_topics([])
