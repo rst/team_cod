@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702212654) do
+ActiveRecord::Schema.define(version: 20160215001239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,12 @@ ActiveRecord::Schema.define(version: 20150702212654) do
     t.datetime "updated_at",               null: false
     t.string   "url"
     t.datetime "expires_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "jobcase_id"
   end
+
+  add_index "events", ["jobcase_id"], name: "index_events_on_jobcase_id", unique: true, using: :btree
 
   create_table "interests", force: :cascade do |t|
     t.integer  "user_id",    null: false
