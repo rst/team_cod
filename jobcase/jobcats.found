@@ -1,0 +1,131 @@
+Retail -- sales
+     85 JobCategory: 41-1011.00 First-Line Supervisors of Retail Sales Workers
+     24 JobCategory: 41-2011.00 Cashiers
+      1 JobCategory: 41-2012.00 Gaming Change Persons and Booth Cashiers
+      6 JobCategory: 41-2021.00 Counter and Rental Clerks
+      1 JobCategory: 41-2022.00 Parts Salespersons
+    143 JobCategory: 41-2031.00 Retail Salespersons
+     15 JobCategory: 41-9011.00 Demonstrators and Product Promoters
+      8 JobCategory: 41-9041.00 Telemarketers
+      1 JobCategory: 41-9091.00 Door-To-Door Sales Workers, News and Street Vendors, and Related Workers
+      5 JobCategory: 43-3071.00 Tellers
+Retail -- other
+     20 JobCategory: 27-1026.00 Merchandise Displayers and Window Trimmers
+      6 JobCategory: 43-5081.01 Stock Clerks, Sales Floor
+     12 JobCategory: 43-5081.03 Stock Clerks- Stockroom, Warehouse, or Storage Yard
+Medical
+      8 JobCategory: 29-2071.00 Medical Records and Health Information Technicians
+      9 JobCategory: 31-1011.00 Home Health Aides
+      6 JobCategory: 31-9093.00 Medical Equipment Preparers
+      9 JobCategory: 39-9021.00 Personal Care Aides
+Child care
+     13 JobCategory: 39-9011.00 Childcare Workers
+Veterinary/Animals
+      1 JobCategory: 31-9096.00 Veterinary Assistants and Laboratory Animal Caretakers
+      3 JobCategory: 39-2011.00 Animal Trainers
+      8 JobCategory: 39-2021.00 Nonfarm Animal Caretakers
+Athletics
+      3 JobCategory: 27-2021.00 Athletes and Sports Competitors
+      4 JobCategory: 33-9092.00 Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers
+Guards
+     58 JobCategory: 33-9032.00 Security Guards
+      1 JobCategory: 33-9091.00 Crossing Guards
+      4 JobCategory: 33-9092.00 Lifeguards, Ski Patrol, and Other Recreational P      2 JobCategory: 33-9031.00 Gaming Surveillance Officers and Gaming Investigators
+Restaurants -- cooks/kitchen
+     45 JobCategory: 35-1012.00 First-Line Supervisors of Food Preparation and Serving Workers
+      3 JobCategory: 35-2012.00 Cooks, Institution and Cafeteria
+     37 JobCategory: 35-2014.00 Cooks, Restaurant
+      1 JobCategory: 35-2015.00 Cooks, Short Order
+      7 JobCategory: 35-2021.00 Food Preparation Workers
+     43 JobCategory: 35-3021.00 Combined Food Preparation and Serving Workers, Including Fast Food
+     16 JobCategory: 35-9021.00 Dishwashers
+      2 JobCategory: 51-3021.00 Butchers and Meat Cutters
+Restaurants -- service
+     45 JobCategory: 35-1012.00 First-Line Supervisors of Food Preparation and S     43 JobCategory: 35-3021.00 Combined Food Preparation and Serving Workers, Including Fast Food Serving Workers
+      7 JobCategory: 35-3011.00 Bartenders
+      3 JobCategory: 35-3022.00 Counter Attendants, Cafeteria, Food Concession, and Coffee Shop
+     40 JobCategory: 35-3031.00 Waiters and Waitresses
+     13 JobCategory: 35-3041.00 Food Servers, Nonrestaurant
+     14 JobCategory: 35-9011.00 Dining Room and Cafeteria Attendants and Bartender Helpers
+     15 JobCategory: 35-9031.00 Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop
+Cleaning
+     11 JobCategory: 37-1011.00 First-Line Supervisors of Housekeeping and Janitorial Workers
+      7 JobCategory: 37-2011.00 Janitors and Cleaners, Except Maids and Housekeeping Cleaners
+     31 JobCategory: 37-2012.00 Maids and Housekeeping Cleaners
+      2 JobCategory: 37-2021.00 Pest Control Workers
+      3 JobCategory: 51-6011.00 Laundry and Dry-Cleaning Workers
+Landscaping
+      6 JobCategory: 37-3011.00 Landscaping and Groundskeeping Workers
+      3 JobCategory: 37-3013.00 Tree Trimmers and Pruners
+Theater/recreation attendant
+      1 JobCategory: 39-3031.00 Ushers, Lobby Attendants, and Ticket Takers
+      3 JobCategory: 39-3091.00 Amusement and Recreation Attendants
+      2 JobCategory: 39-3093.00 Locker Room, Coatroom, and Dressing Room Attendants
+Customer service work
+    128 JobCategory: 43-4051.00 Customer Service Representatives
+      3 JobCategory: 43-4111.00 Interviewers, Except Eligibility and Loan
+      4 JobCategory: 43-4121.00 Library Assistants, Clerical
+Office
+      4 JobCategory: 43-3011.00 Bill and Account Collectors
+      4 JobCategory: 43-3051.00 Payroll and Timekeeping Clerks
+      6 JobCategory: 43-2011.00 Switchboard Operators, Including Answering Service
+      2 JobCategory: 43-4151.00 Order Clerks
+     16 JobCategory: 43-4171.00 Receptionists and Information Clerks
+     10 JobCategory: 43-4181.00 Reservation and Transportation Ticket Agents and Travel Clerks
+      2 JobCategory: 43-5011.00 Cargo and Freight Agents
+     11 JobCategory: 43-5061.00 Production, Planning, and Expediting Clerks
+      4 JobCategory: 43-5071.00 Shipping, Receiving, and Traffic Clerks
+      1 JobCategory: 43-9041.01 Insurance Claims Clerks
+      2 JobCategory: 43-9041.02 Insurance Policy Processing Clerks
+     17 JobCategory: 43-9061.00 Office Clerks, General
+      2 JobCategory: 43-9071.00 Office Machine Operators, Except Computer
+     23 JobCategory: 43-6013.00 Medical Secretaries
+      5 JobCategory: 43-9021.00 Data Entry Keyers
+Courier/Delivery
+      4 JobCategory: 43-5021.00 Couriers and Messengers
+Hotels
+      8 JobCategory: 39-6011.00 Baggage Porters and Bellhops
+     16 JobCategory: 43-4081.00 Hotel, Motel, and Resort Desk Clerks
+     31 JobCategory: 37-2012.00 Maids and Housekeeping Cleaners
+Construction
+      4 JobCategory: 47-2031.01 Construction Carpenters
+      4 JobCategory: 47-2061.00 Construction Laborers
+      1 JobCategory: 47-2073.00 Operating Engineers and Other Construction Equipment Operators
+Manufacturing/Building and fixing stuff
+      1 JobCategory: 47-2211.00 Sheet Metal Workers
+      2 JobCategory: 49-3021.00 Automotive Body and Related Repairers
+      1 JobCategory: 49-3091.00 Bicycle Repairers
+      1 JobCategory: 49-3093.00 Tire Repairers and Changers
+      1 JobCategory: 51-4011.00 Computer-Controlled Machine Tool Operators, Metal and Plastic
+      1 JobCategory: 51-4051.00 Metal-Refining Furnace Operators and Tenders
+      1 JobCategory: 51-6061.00 Textile Bleaching and Dyeing Machine Operators and Tenders
+      1 JobCategory: 51-9051.00 Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders
+Other
+      2 JobCategory: 13-1041.02 Licensing Examiners and Inspectors
+      2 JobCategory: 39-3012.00 Gaming and Sports Book Writers and Runners
+----------------------------------------------------------------
+      1 JobCategory: 43-5031.00 Police, Fire, and Ambulance Dispatchers
+      1 JobCategory: 43-5032.00 Dispatchers, Except Police, Fire, and Ambulance
+      1 JobCategory: 45-2092.01 Nursery Workers
+      1 JobCategory: 45-2093.00 Farmworkers, Farm, Ranch, and Aquacultural Animals
+      2 JobCategory: 47-4041.00 Hazardous Materials Removal Workers
+      3 JobCategory: 49-9094.00 Locksmiths and Safe Repairers
+     17 JobCategory: 51-1011.00 First-Line Supervisors of Production and Operating Workers
+      2 JobCategory: 51-2092.00 Team Assemblers
+      5 JobCategory: 51-9061.00 Inspectors, Testers, Sorters, Samplers, and Weighers
+      1 JobCategory: 51-9081.00 Dental Laboratory Technicians
+      1 JobCategory: 51-9123.00 Painting, Coating, and Decorating Workers
+      2 JobCategory: 51-9195.03 Stone Cutters and Carvers, Manufacturing
+      7 JobCategory: 51-9198.00 Helpers--Production Workers
+      1 JobCategory: 53-1011.00 Aircraft Cargo Handling Supervisors
+      1 JobCategory: 53-3021.00 Bus Drivers, Transit and Intercity
+     10 JobCategory: 53-3031.00 Driver/Sales Workers
+     59 JobCategory: 53-3032.00 Heavy and Tractor-Trailer Truck Drivers
+     26 JobCategory: 53-3033.00 Light Truck or Delivery Services Drivers
+      2 JobCategory: 53-3041.00 Taxi Drivers and Chauffeurs
+      1 JobCategory: 53-4012.00 Locomotive Firers
+      8 JobCategory: 53-6021.00 Parking Lot Attendants
+      1 JobCategory: 53-6031.00 Automotive and Watercraft Service Attendants
+      1 JobCategory: 53-7061.00 Cleaners of Vehicles and Equipment
+      8 JobCategory: 53-7062.00 Laborers and Freight, Stock, and Material Movers, Hand
+      1 JobCategory: 53-7071.00 Gas Compressor and Gas Pumping Station Operators
