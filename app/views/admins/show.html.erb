@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.admin ? 'ADMIN' : '' %></td>
+        <td>
+          <% if user.admin %>
+            <%= link_to 'Demote', 
+                admin_path(user_id: user.id, admin: false),
+                method: :patch %>
+          <% else %>
+            <%= link_to 'Promote', 
+                admin_path(user_id: user.id, admin: true),
+                method: :patch %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
