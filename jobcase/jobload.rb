@@ -43,6 +43,9 @@ jobdoc.css("job").each do |job|
       jobcat.topics.each do |tp|
         ev.topics << tp
       end
+      zip_category = Topic.find_or_create_by! \
+        name: zip_code, topic_group: 'zip_code'
+      ev.topics << zip_category
     end
   end
 end

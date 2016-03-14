@@ -36,7 +36,9 @@ class JobCat < Struct.new(:category, :name, :training_lvl, :topics)
         if line.match(/^\S/)    # not whitespace
           tname = line.strip
           unless %w(Nil Other).include? tname
-            current_topic = Topic.find_or_create_by name: line.strip
+            current_topic = Topic.find_or_create_by \
+               name: line.strip,
+               topic_group: 'job_skills_category'
           end
         else
           category = (line.split)[2]
