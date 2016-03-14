@@ -52,23 +52,6 @@ class Event < ActiveRecord::Base
   ################################################################
   # Queries, scopes, etc.
 
-  TOPIC_GROUPS = 
-    [
-     %w(art advocacy camp custodial construction environmental
-        food\ service hospitality landscaping library research
-        retail security peer\ leadership),
-     %w(career\ exploration
-        college\ prep
-        internship
-        job\ readiness
-        traning
-        mentorship),
-     %w(part_time full_time),
-     %w(in_highschool college\ degree),
-     %w(full_year summer seasonal school_year),
-     %w(dochester boston eastern\ MA)
-    ]
-
   def self.where_current
     # The coalesce replaces a null "expires_at" with now(), so the >= succeeds.
     self.where("coalesce(expires_at, now()) >= now()")
@@ -86,26 +69,15 @@ class Event < ActiveRecord::Base
     self.order("expires_at desc")
   end
 
-  def self.for_topics(topics, as_grouped_by: TOPIC_GROUPS)
+  def self.for_topics(topics)
 
     return self.none if topics.empty?
 
-    topic_groups = self.topics_by_groups(topics, as_grouped_by)
+    topic_groups = topics.group_by(&:topic_group).values
 
     topic_groups.inject(self.all) do |scope, group|
       scope.for_any_of_topics(group)
     end
-
-  end
-
-  def self.topics_by_groups(topics, topic_groups)
-
-    groups = topic_groups.collect{ |group| group & topics }
-    groups.reject!{ |group| group.empty? }
-    ungrouped_topics = topics - groups.flatten
-    
-    groups << ungrouped_topics unless ungrouped_topics.empty?
-    groups
 
   end
 
