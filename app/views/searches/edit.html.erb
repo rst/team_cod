@@ -1,0 +1,12 @@
+<%= form_tag search_path, method: 'put' do %>
+ <div class="container"><div class="col-md-8">
+  <% @topic_groups.each do |group| %>
+    <h2><%= group.first %></h2>
+    <% group.second.each do |topic| %>
+      <%= topic_list_item_with_checkbox(topic,
+                                        @selected_topics.include?(topic)) %>
+    <% end %>
+  <% end %>
+ <%= submit_tag %>
+ </div></div>
+<% end %>
