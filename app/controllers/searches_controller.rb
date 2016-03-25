@@ -9,7 +9,22 @@ class SearchesController < ApplicationController
       set_up_topics
       render action: 'edit'
     else
-      @events = current_user.events_of_interest.order("created_at DESC")
+      @events = 
+        current_user.events_of_interest
+                    .includes(:topics)
+                    .where(["events.created_at > ?", 7.days.ago])
+                    .distinct
+                    .order("created_at DESC")
+      @events_by_date = @events.group_by { |ev| ev.created_at.beginning_of_day }
+      @events_by_date_and_topic = {}
+      @events_by_date.each do |date, events|
+        topics = events.inject([]){ |a, ev| a + ev.topics }
+        evs_grouped = {}
+        topics.sort_by(&:name).each do |topic|
+          evs_grouped[topic] = events.select { |ev| ev.topics.include?(topic) }
+        end
+        @events_by_date_and_topic[date] = evs_grouped
+      end
     end
   end
 
